@@ -1,14 +1,15 @@
+import { observer } from 'mobx-react-lite'
 import React, { useContext } from 'react'
+import { Container } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button'
 import { NavLink } from 'react-router-dom'
 import { Context } from '..'
 import { SHOP_ROUTE } from '../utils/consts'
-import { observer } from 'mobx-react-lite'
-import { Container } from 'react-bootstrap'
 
 const NavBar = observer(() => {
+	// eslint-disable-next-line
 	const { user } = useContext(Context)
 	return (
 		<div>
