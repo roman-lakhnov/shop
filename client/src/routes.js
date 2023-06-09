@@ -13,12 +13,12 @@ import {
 } from './utils/consts'
 
 export const authRoutes = [
-    { path: ADMIN_ROUTE, element: <Admin /> },
-    { path: BASKET_ROUTE, element: <Basket /> }
+	{ path: ADMIN_ROUTE, element: <Admin /> },
+	{ path: BASKET_ROUTE, element: <Basket /> }
 ]
 export const publicRoutes = [
 	{ path: REGISTRATION_ROUTE, element: <Auth /> },
 	{ path: LOGIN_ROUTE, element: <Auth /> },
 	{ path: SHOP_ROUTE, element: <Shop /> },
-	{ path: DEVICE_ROUTE + '/:id', element: <Device /> },
+	{ path: DEVICE_ROUTE + '/:id', element: <Device /> }
 ]
