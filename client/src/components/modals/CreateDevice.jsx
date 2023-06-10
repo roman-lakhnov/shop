@@ -1,10 +1,16 @@
 import React, { useContext, useState } from 'react'
-import { Button, Dropdown, Form, Modal } from 'react-bootstrap'
+import { Button, Col, Dropdown, Form, Modal, Row } from 'react-bootstrap'
 import { Context } from '../..'
 
 const CreateDevice = ({ show, onHide }) => {
 	const { device } = useContext(Context)
 	const [info, setInfo] = useState([])
+	const addInfo = () => {
+		setInfo([...info, { title: '', description: '', number: Date.now() }])
+	}
+	const removeInfo = number => {
+		setInfo(info.filter(i => i.number !== number))
+	}
 	return (
 		<Modal show={show} onHide={onHide} size='lg' centered>
 			<Modal.Header closeButton>
@@ -41,8 +47,28 @@ const CreateDevice = ({ show, onHide }) => {
 					></Form.Control>
 					<Form.Control className='mt-3' type='file'></Form.Control>
 					<hr />
+					<Button onClick={addInfo} variant='outline-dark'>
+						Добавить новое свойство
+					</Button>
+					{info.map(i => (
+						<Row className='mt-4' key={i.number}>
+							<Col md={4}>
+								<Form.Control placeholder='Введите название свойства' />
+							</Col>
+							<Col md={4}>
+								<Form.Control placeholder='Введите описание' />
+							</Col>
+							<Col md={4}>
+								<Button
+									onClick={() => removeInfo(i.number)}
+									variant='outline-danger'
+								>
+									Удалить
+								</Button>{' '}
+							</Col>
+						</Row>
+					))}
 				</Form>
-				<Button variant='outline-dark'>Добавить новое свойство</Button>
 			</Modal.Body>
 			<Modal.Footer>
 				<Button variant='outline-success' onClick={onHide}>
