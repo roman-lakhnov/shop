@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Col, Image } from 'react-bootstrap'
+// @ts-ignore
 import star from '../assets/starS.jpg'
 import { useNavigate } from 'react-router-dom'
 import { DEVICE_ROUTE } from '../utils/consts'
