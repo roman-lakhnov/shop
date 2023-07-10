@@ -12,6 +12,11 @@ const NavBar = observer(() => {
 	// eslint-disable-next-line
 	const { user } = useContext(Context)
 	const navigate = useNavigate()
+
+	const logOut = () => {
+		user.setUser({})
+		user.setIsAuth(false)
+	}
 	return (
 		<div>
 			<Navbar className='ps-3' bg='dark' variant='dark'>
@@ -35,8 +40,7 @@ const NavBar = observer(() => {
 								className='ms-2'
 								variant={'outline-light'}
 								onClick={() => {
-									navigate(LOGIN_ROUTE)
-									user.setIsAuth(false)
+									logOut()
 								}}
 							>
 								Выйти

@@ -1,27 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap'
 import star from '../assets/starS.jpg'
+import { useParams } from 'react-router-dom'
+import { fetchOneDevice } from '../http/deviceAPI'
+import { useEffect } from 'react'
 
-const Device = () => {
-	const device = {
-		id: 7,
-		name: 'Iphone xs',
-		price: 25000,
-		rating: 5,
-		img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-	}
-	const description = [
-		{ id: 1, title: 'оперативная память', description: '5 гб' },
-		{ id: 2, title: 'камера', description: '12 мп' },
-		{ id: 3, title: 'Процессор', description: 'Пентиум 3' },
-		{ id: 4, title: 'Кол-во ядер', description: '2' },
-		{ id: 5, title: 'Аккумулятор', description: '4000' }
-	]
+const DevicePage = () => {
+	const [device, setDevice] = useState({
+		name: '',
+		price: '',
+		rating: '',
+		img: '',
+		info: []
+	})
+
+	const { id } = useParams()
+	useEffect(() => {
+		fetchOneDevice(id).then(data => setDevice(data))
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
 	return (
 		<Container className='mt-3'>
 			<Row>
 				<Col md={4}>
-					<Image width={300} height={300} src={device.img} />
+					<Image
+						width={300}
+						height={300}
+						src={process.env.REACT_APP_API_URL + device.img}
+					/>
 				</Col>
 
 				<Col md={4} className='d-flex flex-column align-items-center'>
@@ -57,7 +64,7 @@ const Device = () => {
 			</Row>
 			<Row>
 				<h1>Характеристики:</h1>
-				{description.map((info, index) => (
+				{device.info.map((info, index) => (
 					<div
 						key={info.id}
 						style={{
@@ -73,4 +80,4 @@ const Device = () => {
 	)
 }
 
-export default Device
+export default DevicePage

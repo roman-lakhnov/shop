@@ -2,70 +2,10 @@ import { makeAutoObservable } from 'mobx'
 
 export default class DeviceStore {
 	constructor() {
-		this._types = [
-			{ id: 1, name: 'Холодильнии' },
-			{ id: 2, name: 'Смартфоны' },
-			{ id: 3, name: 'Ноутбуки' },
-			{ id: 4, name: 'Теливизоры' }
-		]
-		this._brands = [
-			{ id: 1, name: 'Samsung' },
-			{ id: 2, name: 'Apple' },
-			{ id: 3, name: 'Lenovo' },
-			{ id: 4, name: 'Asus' }
-		]
+		this._types = []
+		this._brands = []
 
-		this._devices = [
-			{
-				id: 1,
-				name: 'Iphone 12 pro',
-				price: 25000,
-				rating: 5,
-				img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-			},
-			{
-				id: 2,
-				name: 'Iphone 7 plus',
-				price: 25000,
-				rating: 5,
-				img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-			},
-			{
-				id: 3,
-				name: 'MacBook',
-				price: 25000,
-				rating: 5,
-				img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-			},
-			{
-				id: 4,
-				name: 'Iphone xs',
-				price: 25000,
-				rating: 5,
-				img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-			},
-			{
-				id: 5,
-				name: 'Iphone xs',
-				price: 25000,
-				rating: 5,
-				img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-			},
-			{
-				id: 6,
-				name: 'Iphone xs',
-				price: 25000,
-				rating: 5,
-				img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-			},
-			{
-				id: 7,
-				name: 'Iphone xs',
-				price: 25000,
-				rating: 5,
-				img: 'https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-Max-image.jpg'
-			}
-		]
+		this._devices = []
 		this._selectedType = {}
 		this._selectedBrand = {}
 		makeAutoObservable(this)

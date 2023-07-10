@@ -1,7 +1,8 @@
+import React from 'react'
 import Admin from './pages/Admin'
 import Auth from './pages/Auth'
 import Basket from './pages/Basket'
-import Device from './pages/Device'
+import DevicePage from './pages/DevicePage'
 import Shop from './pages/Shop'
 import {
 	ADMIN_ROUTE,
@@ -20,5 +21,5 @@ export const publicRoutes = [
 	{ path: REGISTRATION_ROUTE, element: <Auth /> },
 	{ path: LOGIN_ROUTE, element: <Auth /> },
 	{ path: SHOP_ROUTE, element: <Shop /> },
-	{ path: DEVICE_ROUTE + '/:id', element: <Device /> }
+	{ path: DEVICE_ROUTE + '/:id', element: <DevicePage /> }
 ]
